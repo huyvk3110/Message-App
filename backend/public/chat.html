@@ -10,7 +10,7 @@
 
 <body>
     <div id="content">
-        <input type="text" name="friend_id" id="friend_id" placeholder="Friend ID">
+        <input type="text" name="friend_email" id="friend_email" placeholder="Friend Email">
         <input type="text" name="chatroom_id" id="chatroom_id" placeholder="Chatroom ID">
         <input type="text" name="message" id="message" placeholder="Message">
         <button id="btnSend">Send</button>
@@ -18,7 +18,7 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
 <script>
-    var friendInput = document.getElementById('friend_id');
+    var friendInput = document.getElementById('friend_email');
     var chatroomInput = document.getElementById('chatroom_id');
     var messageInput = document.getElementById('message');
     var btnSend = document.getElementById('btnSend');
@@ -31,10 +31,10 @@
     socket.on('CHATROOM_LIST', function (data) { console.log(data); })
 
     btnSend.addEventListener('click', function () {
-        let friendId = friendInput.value;
+        let friendEmail = friendInput.value;
         let chatroomId = chatroomInput.value;
         let text = messageInput.value;
-        if ((friendId || chatroomId) && message) socket.emit("MESSAGE", { friendId, chatroomId, text })
+        if ((friendEmail || chatroomId) && message) socket.emit("MESSAGE", { friendEmail, chatroomId, text })
         else alert('Input error');
     });
 </script>

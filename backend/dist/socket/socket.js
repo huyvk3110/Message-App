@@ -36,33 +36,33 @@ function default_1(io) {
             //Listent
             socket.on(define_key_1.IO.MESSAGE, function (data) {
                 return __awaiter(this, void 0, void 0, function* () {
-                    let { friendId, chatroomId, text } = data;
+                    let { friendEmail, chatroomId, text } = data;
                     let chatroom = undefined;
                     let me = undefined;
                     let friend = undefined;
                     const id = socket.request.user.id;
-                    if ((!chatroomId && !friendId) || (chatroomId && friendId))
+                    if ((!chatroomId && !friendEmail) || (chatroomId && friendEmail))
                         return;
                     //Get me
                     me = yield new Promise((res, rej) => database_model_1.User.findById(id).then((data) => res(data)));
                     //Get friend
-                    if (friendId)
-                        friend = yield new Promise((res, rej) => database_model_1.User.findById(friendId).then(data => res(data)));
+                    if (friendEmail)
+                        friend = yield new Promise((res, rej) => database_model_1.User.findOne({ email: friendEmail }).then(data => res(data)));
                     //Get chat room
                     if (chatroomId) {
                         //Get chatroom
                         chatroom = yield new Promise((res, rej) => { database_model_1.ChatRoom.findById(chatroomId).then(data => res(data)); });
                         //Get friend if friend id not exist
-                        friendId = chatroom.users.find((o) => o != id);
+                        let friendId = chatroom.users.find((o) => o != id);
                         friend = yield new Promise((res, rej) => database_model_1.User.findById(friendId).then(data => res(data)));
                     }
                     //Check user exist
                     if (!me || !friend)
                         return;
-                    if (friendId && !chatroom) {
+                    if (friendEmail && !chatroom) {
                         //Check friend id on chat room
                         const listChatrooms = yield new Promise((res, rej) => database_model_1.User.findById(id).then(data => res(data.get('chatrooms'))));
-                        let chatroomId = listChatrooms.find((o) => o && o.users.find((oo) => oo == friendId));
+                        let chatroomId = listChatrooms.find((o) => o && o.users.find((oo) => oo == friend._id));
                         //Check chatroom and create if not exist
                         if (chatroomId)
                             chatroom = yield new Promise((res, rej) => { database_model_1.ChatRoom.findById(chatroomId).then(data => res(data)); });
@@ -72,7 +72,7 @@ function default_1(io) {
                                 let chatroom = new database_model_1.ChatRoom({
                                     created_at: new Date(),
                                     updated_at: new Date(),
-                                    users: [id, friendId]
+                                    users: [id, friend._id]
                                 });
                                 chatroom.save().then(data => res(data));
                             });

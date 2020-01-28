@@ -31,32 +31,32 @@ export default function (io: Server) {
 
         //Listent
         socket.on(IO.MESSAGE, async function (data: any) {
-            let { friendId, chatroomId, text } = data;
+            let { friendEmail, chatroomId, text } = data;
             let chatroom: any = undefined;
             let me: any = undefined;
             let friend: any = undefined;
             const id = socket.request.user.id;
 
-            if ((!chatroomId && !friendId) || (chatroomId && friendId)) return;
+            if ((!chatroomId && !friendEmail) || (chatroomId && friendEmail)) return;
             //Get me
             me = await new Promise((res, rej) => User.findById(id).then((data) => res(data)));
             //Get friend
-            if (friendId) friend = await new Promise((res, rej) => User.findById(friendId).then(data => res(data)));
+            if (friendEmail) friend = await new Promise((res, rej) => User.findOne({ email: friendEmail }).then(data => res(data)));
             //Get chat room
             if (chatroomId) {
                 //Get chatroom
                 chatroom = await new Promise((res, rej) => { ChatRoom.findById(chatroomId).then(data => res(data)) });
                 //Get friend if friend id not exist
-                friendId = chatroom.users.find((o: any) => o != id);
+                let friendId = chatroom.users.find((o: any) => o != id);
                 friend = await new Promise((res, rej) => User.findById(friendId).then(data => res(data)));
             }
             //Check user exist
             if (!me || !friend) return;
 
-            if (friendId && !chatroom) {
+            if (friendEmail && !chatroom) {
                 //Check friend id on chat room
                 const listChatrooms: Object[] = await new Promise((res, rej) => User.findById(id).then(data => res(data.get('chatrooms'))));
-                let chatroomId = listChatrooms.find((o: any) => o && o.users.find((oo: any) => oo == friendId));
+                let chatroomId = listChatrooms.find((o: any) => o && o.users.find((oo: any) => oo == friend._id));
                 //Check chatroom and create if not exist
                 if (chatroomId) chatroom = await new Promise((res, rej) => { ChatRoom.findById(chatroomId).then(data => res(data)) });
                 else {
@@ -65,7 +65,7 @@ export default function (io: Server) {
                         let chatroom = new ChatRoom({
                             created_at: new Date(),
                             updated_at: new Date(),
-                            users: [id, friendId]
+                            users: [id, friend._id]
                         })
                         chatroom.save().then(data => res(data))
                     })
