@@ -31,6 +31,7 @@ router.route('/')
         created_at: new Date(),
         last_login: new Date(),
         login_count: 0,
+        permission: 2,
         online: false,
     });
     user.save()

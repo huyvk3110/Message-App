@@ -1,7 +1,6 @@
 import { Router } from "express";
-import { User, ChatRoom, Message } from "../../database/database.model"
+import { User } from "../../database/database.model"
 import * as bcrypt from "bcrypt";
-import { Query } from "mongoose";
 
 const router = Router();
 
@@ -30,6 +29,7 @@ router.route('/')
             created_at: new Date(),
             last_login: new Date(),
             login_count: 0,
+            permission: 2,
             online: false,
         })
         user.save()

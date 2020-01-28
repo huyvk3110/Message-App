@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+</head>
+
+<body>
+    <div id="content">
+        <input type="text" name="friend_id" id="friend_id" placeholder="Friend ID">
+        <input type="text" name="chatroom_id" id="chatroom_id" placeholder="Chatroom ID">
+        <input type="text" name="message" id="message" placeholder="Message">
+        <button id="btnSend">Send</button>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+<script>
+    var friendInput = document.getElementById('friend_id');
+    var chatroomInput = document.getElementById('chatroom_id');
+    var messageInput = document.getElementById('message');
+    var btnSend = document.getElementById('btnSend');
+
+    var socket = io();
+    socket.on('USER_ONLINE', function (data) { console.log(data) });
+
+    socket.on('MESSAGE', function (data) { console.log('Message', data) })
+
+    socket.on('CHATROOM_LIST', function (data) { console.log(data); })
+
+    btnSend.addEventListener('click', function () {
+        let friendId = friendInput.value;
+        let chatroomId = chatroomInput.value;
+        let text = messageInput.value;
+        if ((friendId || chatroomId) && message) socket.emit("MESSAGE", { friendId, chatroomId, text })
+        else alert('Input error');
+    });
+</script>
+
+</html>
