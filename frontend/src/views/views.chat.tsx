@@ -32,7 +32,7 @@ class Chat extends Component {
                             </div>
                         </div>
                         <div className="chat-left-list">
-                            <div className="d-flex chatroom-item item-active align-items-center p-2">
+                            <a className="d-flex chatroom-item item-active align-items-center p-2">
                                 <div className="avatar circle-50 color-gray">
                                     <i className="fa fa-user"></i>
                                 </div>
@@ -40,8 +40,8 @@ class Chat extends Component {
                                     <span className="font-weight-normal chatroom-item-user">huyvk</span>
                                     <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
                                 </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
+                            </a>
+                            <a className="d-flex chatroom-item align-items-center p-2">
                                 <div className="avatar circle-50 color-gray">
                                     <i className="fa fa-user"></i>
                                 </div>
@@ -49,124 +49,7 @@ class Chat extends Component {
                                     <span className="font-weight-normal chatroom-item-user">huyvk</span>
                                     <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
                                 </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
-                            <div className="d-flex chatroom-item align-items-center p-2">
-                                <div className="avatar circle-50 color-gray">
-                                    <i className="fa fa-user"></i>
-                                </div>
-                                <div className="d-flex flex-column pl-2">
-                                    <span className="font-weight-normal chatroom-item-user">huyvk</span>
-                                    <span className="font-weight-light text-black-50 chatroom-item-info">Lorem ipsum dolor sit amet consectetur</span>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div className="col-sm-7 col-md-9 chat-right py-1">
@@ -181,7 +64,7 @@ class Chat extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="row chat-right-content px-4 py-1">
+                        <div className="chat-right-content px-4 py-1">
                             <div className="message-item message-friend">
                                 <div className="btn avatar circle-40 color-gray mr-2">
                                     <i className="fa fa-user"></i>
@@ -206,6 +89,14 @@ class Chat extends Component {
                                     <div className="message">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="chat-right-input mx-1 d-flex justify-content-between">
+                            <div className="input-group mb-3">
+                                <input type="text" className="form-control chat-right-input font-weight-light" placeholder="Text message" aria-label="Text message" aria-describedby="button-addon2" />
+                                <div className="input-group-append">
+                                    <button className="btn btn-primary" type="button" id="button-addon2">Send</button>
                                 </div>
                             </div>
                         </div>

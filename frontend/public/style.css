@@ -116,6 +116,10 @@ body {
     border-radius: 10px;
 }
 
+.chatroom-item:hover {
+    cursor: pointer;
+}
+
 .chatroom-item-info {
     font-size: 10pt;
 }
@@ -127,7 +131,21 @@ body {
 .chat-right-content {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 98px);
+}
+
+.chat-right-input {
+    border: none!important;
+    background: var(--color-gray-light)!important;
+    height: 34px!important;
+    border-top-left-radius: 17px!important;
+    border-bottom-left-radius: 17px!important;
+}
+
+.chat-right-input .btn{
+    height: 34px!important;
+    border-top-right-radius: 17px!important;
+    border-bottom-right-radius: 17px!important;
 }
 
 .message-item {
