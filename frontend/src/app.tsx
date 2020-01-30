@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./views/views.login";
 import Chat from "./views/views.chat";
 
@@ -9,10 +10,16 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <Chat />
-                {/* <Login /> */}
-            </div>
+            <Router>
+                <Switch>
+                    <Route path="/" exact={true}>
+                        <Login />
+                    </Route>
+                    <Route path="/t">
+                        <Chat />
+                    </Route>
+                </Switch>
+            </Router>
         )
     }
 }

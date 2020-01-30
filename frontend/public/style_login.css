@@ -1,0 +1,14 @@
+.form-signin {
+    max-width: 330px;
+    width: 100%;
+}
+
+.form-signin .btn-group .btn {
+    color: #495057;
+    border: 1px solid #ced4da;
+}
+
+.form-signin input:focus {
+    box-shadow: none;
+    border: 1px solid #ced4da;
+}
