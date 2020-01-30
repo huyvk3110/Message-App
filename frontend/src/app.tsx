@@ -1,4 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import Login from "./views/views.login";
+import Chat from "./views/views.chat";
 
 class App extends Component {
     constructor(props: any) {
@@ -6,9 +8,10 @@ class App extends Component {
     }
 
     render() {
-        return(
+        return (
             <div>
-                Hello world
+                <Chat />
+                {/* <Login /> */}
             </div>
         )
     }
