@@ -8,7 +8,7 @@ body {
 }
 
 .logo {
-    color: #3949ab;
+    color: var(--primary);
     font-size: 50pt!important;
 }
 
@@ -51,4 +51,11 @@ body {
     border-bottom-left-radius: 0!important;
     border-bottom-right-radius: 0!important;
     border-bottom: 0px!important;
+}
+
+.alert-custom {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
 }
