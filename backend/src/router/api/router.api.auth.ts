@@ -1,29 +1,38 @@
 import { Router } from "express";
 import passport = require("passport");
-import * as jwt from "jsonwebtoken";
 
 const router = Router();
 
-router.post('/login', passport.authenticate('local', { failureRedirect: '/', }), function (req: any, res) {
-    res.status(200).json({
-        authenticate: req.user.token,
-        data: {
-            id: req.user._id,
-            name: req.user.name,
-            email: req.user.email,
-        }
-    })
+router.post('/login', passport.authenticate('local'), function (req: any, res) {
+    if (req.isAuthenticated()) {
+        res.status(200).json({
+            status: 'success',
+            authenticate: req.user.token,
+            data: {
+                id: req.user._id,
+                name: req.user.name,
+                email: req.user.email,
+            }
+        })
+    } else {
+        res.status(500).json({ status: 'error' })
+    }
 })
 
-router.post('/login-jwt', passport.authenticate('jwt', { session: false, failureRedirect: '/', }), function (req: any, res) {
-    res.status(200).json({
-        authenticate: req.user.token,
-        data: {
-            id: req.user._id,
-            name: req.user.name,
-            email: req.user.email,
-        }
-    })
+router.post('/login-jwt', passport.authenticate('jwt', { session: false }), function (req: any, res) {
+    if (req.isAuthenticated()) {
+        res.status(200).json({
+            status: 'success',
+            authenticate: req.user.token,
+            data: {
+                id: req.user._id,
+                name: req.user.name,
+                email: req.user.email,
+            }
+        })
+    } else {
+        res.status(500).json({ status: 'error' })
+    }
 })
 
 router.route('/register')
@@ -34,7 +43,7 @@ router.route('/register')
 router.route('/logout')
     .post(function (req, res) {
         req.logout();
-        res.redirect('/');
+        res.status(200).json({ status: 'success' })
     })
 
 export default router;

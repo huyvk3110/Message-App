@@ -13,6 +13,7 @@ const passportSocketIO = require("passport.socketio");
 const socketio = require("socket.io");
 const Http = require("http");
 const connectMongo = require("connect-mongo");
+const cors = require("cors");
 const auth_1 = require("./auth/auth");
 const socket_1 = require("./socket/socket");
 const router_1 = require("./router/router");
@@ -27,6 +28,7 @@ const sessionStore = new MongoStore({
 });
 dotenv.config();
 app.use(helmet());
+app.use(cors());
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));

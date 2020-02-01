@@ -1,8 +1,11 @@
 import { Router, NextFunction, Response, Request } from "express";
+import * as passport from "passport"
 
-export function isAuth(req: Request, res: Response, next: NextFunction) {
-    if (req.isAuthenticated()) return next();
-    res.redirect('/');
+export async function isAuth(req: Request, res: Response, next: NextFunction) {
+    passport.authenticate('jwt', { session: false })(req, res, () => {
+        if (req.isAuthenticated()) return next();
+        res.status(401).json({ status: 'Authorization error' })
+    })
 }
 
 export function checkPermission(permission: number) {

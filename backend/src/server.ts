@@ -11,6 +11,7 @@ import * as passportSocketIO from "passport.socketio";
 import * as socketio from "socket.io";
 import * as Http from "http";
 import * as connectMongo from "connect-mongo";
+import * as cors from "cors";
 import auth from "./auth/auth";
 import socketServer from "./socket/socket";
 import router from "./router/router";
@@ -27,6 +28,7 @@ const sessionStore = new MongoStore({
 
 dotenv.config();
 app.use(helmet());
+app.use(cors());
 app.use(morgan("dev"))
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }));
