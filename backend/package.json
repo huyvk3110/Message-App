@@ -26,10 +26,6 @@
     "@types/jsonwebtoken": "^8.3.7",
     "@types/mongoose": "^5.5.43",
     "@types/morgan": "^1.7.37",
-    "@types/passport": "^1.0.2",
-    "@types/passport-jwt": "^3.0.3",
-    "@types/passport-local": "^1.0.33",
-    "@types/passport.socketio": "^3.7.1",
     "@types/pubsub-js": "^1.5.18",
     "@types/socket.io": "^2.1.4",
     "bcrypt": "^3.0.7",
@@ -45,10 +41,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.9",
     "morgan": "^1.9.1",
-    "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0",
-    "passport.socketio": "^3.7.0",
     "pubsub-js": "^1.8.0",
     "socket.io": "^2.3.0"
   }

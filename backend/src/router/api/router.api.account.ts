@@ -7,7 +7,7 @@ const router = Router();
 
 router.route('/')
     .get(isAuth, function (req: any, res) {
-        const id = req.user._id;
+        const id = req.session.user._id;
 
         User.findById(id)
             .then(user => {
@@ -37,7 +37,7 @@ router.route('/')
             .catch(error => res.status(500).send(error));
     })
     .put(isAuth, function (req: any, res) {
-        const id = req.user._id;
+        const id = req.session.user._id;
         const { name, oldPassword, newPassword } = req.body;
 
         if (!oldPassword || (!name && !newPassword)) return res.status(400).send('Request error');
@@ -53,7 +53,7 @@ router.route('/')
             .catch(error => res.status(500).send('Unknow error'));
     })
     .delete(isAuth, function (req: any, res) {
-        const id = req.user._id;
+        const id = req.session.user._id;
         const { password } = req.body;
 
         if (!password) return res.status(400).send('Request error');

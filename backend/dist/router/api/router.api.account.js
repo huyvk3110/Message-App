@@ -7,7 +7,7 @@ const util_1 = require("../../util/util");
 const router = express_1.Router();
 router.route('/')
     .get(util_1.isAuth, function (req, res) {
-    const id = req.user._id;
+    const id = req.session.user._id;
     database_model_1.User.findById(id)
         .then(user => {
         let data = Object.assign({}, user.toObject());
@@ -36,7 +36,7 @@ router.route('/')
         .catch(error => res.status(500).send(error));
 })
     .put(util_1.isAuth, function (req, res) {
-    const id = req.user._id;
+    const id = req.session.user._id;
     const { name, oldPassword, newPassword } = req.body;
     if (!oldPassword || (!name && !newPassword))
         return res.status(400).send('Request error');
@@ -55,7 +55,7 @@ router.route('/')
         .catch(error => res.status(500).send('Unknow error'));
 })
     .delete(util_1.isAuth, function (req, res) {
-    const id = req.user._id;
+    const id = req.session.user._id;
     const { password } = req.body;
     if (!password)
         return res.status(400).send('Request error');
