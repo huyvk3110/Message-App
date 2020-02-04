@@ -107,9 +107,7 @@ class Login extends Component<IProps, IStates> {
     }
 
     onClickLoginGoogle() {
-        API.loginToken()
-            .then(data => { console.log(data); })
-            .catch(error => { console.log(error) });
+        // API.logout().then(data=>console.log(data))
     }
 
     render() {

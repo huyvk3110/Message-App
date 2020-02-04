@@ -1,11 +1,40 @@
 import React, { Component } from "react";
+import API from "../api";
+import io from "socket.io-client";
+import { setLogged } from "../action/action.app";
+import { connect } from "react-redux";
+import { IStoreApp } from "../define/define.interface";
 
-class Chat extends Component {
-    constructor(props: any) {
+interface IProps {
+    app: IStoreApp
+    setLogged: typeof setLogged
+}
+
+class Chat extends Component<IProps> {
+    public static defaultProps: IProps = {
+        app: {
+            user: { id: '', name: '', email: '' },
+            logged: false,
+        },
+        setLogged: (logged: boolean) => ({ type: '', payload: false }),
+    }
+
+    constructor(props: IProps) {
         super(props);
     }
 
+    componentWillMount() {
+        var socket = io('http://127.0.0.1:3001/');
+        socket.on('USER_ONLINE', function (data: any) { console.log('Socket', data) });
+
+        socket.on('MESSAGE', function (data: any) { console.log('Socket', 'Message', data) })
+
+        socket.on('CHATROOM_LIST', function (data: any) { console.log('Socket', data); })
+    }
+
     render() {
+        const { app, setLogged } = this.props;
+
         return (
             <div className="chat container-fluid">
                 <div className="row vh-100">
@@ -16,10 +45,13 @@ class Chat extends Component {
                                     <button className="btn avatar circle-40 color-gray mr-2">
                                         <i className="fa fa-user"></i>
                                     </button>
-                                    <span className="font-weight-bolder">huyvk3110</span>
+                                    <span className="font-weight-bolder">{app.user.name}</span>
                                 </div>
                                 <div>
-                                    <button className="btn circle-40 color-gray">
+                                    <button className="btn circle-40 color-gray mr-1" onClick={() => { API.logout().then(data => setLogged(false)) }}>
+                                        <i className="fa fa-pencil-square-o"></i>
+                                    </button>
+                                    <button className="btn circle-40 color-gray" onClick={() => { API.getAccount().then(data => console.log(data)) }}>
                                         <i className="fa fa-pencil-square-o"></i>
                                     </button>
                                 </div>
@@ -107,4 +139,12 @@ class Chat extends Component {
     }
 }
 
-export default Chat;
+const mapStateToProps = (state: any) => ({
+    app: state.app
+})
+
+const mapDispatchToProps = {
+    setLogged
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);

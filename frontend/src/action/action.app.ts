@@ -8,6 +8,10 @@ export function updateUserData(data: any) {
 }
 
 export function setLogged(logged: boolean) {
+    if (!logged) {
+        localStorage.removeItem('token');
+    }
+
     return {
         type: SET_LOGGER,
         payload: logged
