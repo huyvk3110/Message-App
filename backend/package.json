@@ -28,7 +28,7 @@
     "@types/morgan": "^1.7.37",
     "@types/pubsub-js": "^1.5.18",
     "@types/socket.io": "^2.1.4",
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "concurrently": "^5.0.2",
     "connect-mongo": "^3.2.0",
